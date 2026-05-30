@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>For My Favorite Person ❤️</title>
+<title>4 AM Walk With My Queen ❤️</title>
 
 <style>
 *{
@@ -325,7 +325,7 @@ body{
 
 .meme-box{
     margin-top:25px;
-    height:220px;
+    height:240px; /* Increased for Shayari */
     position:relative;
 }
 
@@ -359,10 +359,11 @@ body{
 
 .meme-text{
     margin-top:15px;
-    font-size:18px;
+    font-size:17px;
     color:#ff2f79;
-    line-height:1.5;
+    line-height:1.4;
     font-weight:700;
+    font-style: italic; /* Style for Shayari */
 }
 
 .small{
@@ -412,6 +413,7 @@ body{
     background:white;
     font-size:20px;
     box-shadow:0 8px 20px rgba(0,0,0,.1);
+    z-index:10;
 }
 
 .tap-note{
@@ -440,23 +442,23 @@ body{
 
 <div class="intro" id="intro">
 
-<div class="big-heart">💖</div>
+<div class="big-heart">🌌</div>
 
 <div class="title">
-Hey Beautiful
+Hey My Princess
 </div>
 
 <div class="subtitle">
-Aaj tumhare liye ek chhoti si cute surprise website banayi hai ✨<br><br>
-Isko pura dekhna... warna mera dil thoda sa toot jayega 🥺
+Subah 4 baje ki shanti aur tumhara saath...<br><br>
+Maine ye chhoti si site banayi hai humari Sunday morning ke liye. ✨
 </div>
 
 <button class="start-btn" onclick="startQuestions()">
-Tap Here Princess 💌
+Open With Love 💌
 </button>
 
 <div class="tap-note">
-Made with too much love 💕
+Made for the girl who owns my heart 💕
 </div>
 
 </div>
@@ -465,25 +467,25 @@ Made with too much love 💕
 
 <div class="question-screen" id="questionScreen">
 
-<div class="walk-img">🌅🚶‍♀️</div>
+<div class="walk-img">🌙✨</div>
 
 <div class="question">
-Sunday Morning<br>
+Sunday Subah 4:00 AM<br>
 Walk Par Chlogi? 💕
 </div>
 
 <div class="cute-line">
-Please "Nahi" mat dabana warna vo bhaag jayega 😭
+Andhere mein sirf hum honge, koi dekhne wala nahi 🤫
 </div>
 
 <div class="buttons">
 
 <button class="yes-btn" id="yesBtn">
-Haa Chlenge 💖
+Haa Bilkul Chlenge! 💖
 </button>
 
 <button class="no-btn" id="noBtn">
-Nahi 😶
+Nahi, Neend Ayegi 😶
 </button>
 
 </div>
@@ -495,26 +497,26 @@ Nahi 😶
 <div class="second-screen" id="secondScreen">
 
 <div class="promise">
-🥹💞
+🤞💞
 </div>
 
 <div class="second-question">
-Pakka Chlogi Na?<br>
-Mujhe Ignore Toh Nahi Krogi? 🥺
+Pakka Chalna Hai Na?<br>
+Alaram Off Toh Nahi Krogi? 🥺
 </div>
 
 <div class="cute-line">
-Iss baar bhi "Nahi" button pakad ke dikhao 😏
+Waise bhi "Nahi" button toh tumse dabne wala hai nahi 😏
 </div>
 
 <div class="second-buttons">
 
 <button class="final-yes" id="finalYes">
-Haa Baby Pakka 💘
+Haa Baby Pakka Promise 💘
 </button>
 
 <button class="final-no" id="finalNo">
-Nahi 😭
+Nahi Soyungi 😭
 </button>
 
 </div>
@@ -526,22 +528,22 @@ Nahi 😭
 <div class="final-screen" id="finalScreen">
 
 <div class="success-heart">
-💞
+🌌❤️
 </div>
 
 <div class="success-title">
-Yayyyyy 😭💖
+The Best Plan! 😭💖
 </div>
 
 <div class="success-text">
-Ab Sunday special ho gaya ✨<br>
-Tum + Morning Walk + Cute Talks + Chai = Perfect Day 💕
+Subah 4 baje ka waqt, thandi hawa aur tumhara haath...<br>
+Sunday is going to be Magical! ✨
 </div>
 
 <div class="meme-box" id="memeBox"></div>
 
 <div class="footer">
-Tum smile karti ho toh literally sab cute lagta hai 🥺
+4:00 AM is our secret time. Love you! 🥺
 </div>
 
 </div>
@@ -560,31 +562,21 @@ Tum smile karti ho toh literally sab cute lagta hai 🥺
 const hearts = document.getElementById("hearts");
 
 for(let i=0;i<35;i++){
-
     let heart = document.createElement("div");
     heart.classList.add("heart");
-
     heart.innerHTML = ["💖","💕","💗","💘","💞","✨"][Math.floor(Math.random()*6)];
-
     heart.style.left = Math.random()*100 + "vw";
-
     heart.style.animationDuration = (6 + Math.random()*8) + "s";
-
     heart.style.fontSize = (16 + Math.random()*24) + "px";
-
     heart.style.opacity = Math.random();
-
     heart.style.animationDelay = Math.random()*5 + "s";
-
     hearts.appendChild(heart);
 }
 
 /* Music */
 
 function playMusic(){
-
     let music = document.getElementById("bgMusic");
-
     if(music.paused){
         music.play();
     }else{
@@ -595,9 +587,7 @@ function playMusic(){
 /* Screen control */
 
 function startQuestions(){
-
     document.getElementById("intro").style.display = "none";
-
     document.getElementById("questionScreen").style.display = "block";
 }
 
@@ -605,287 +595,168 @@ function startQuestions(){
 
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
-
 const finalNo = document.getElementById("finalNo");
 const finalYes = document.getElementById("finalYes");
 
 /* Moving No Button */
 
 function moveButton(button){
-
     const parent = button.parentElement;
-
     const parentRect = parent.getBoundingClientRect();
-
     const btnRect = button.getBoundingClientRect();
-
     const maxX = parentRect.width - btnRect.width - 10;
-
     const maxY = parentRect.height - btnRect.height - 10;
-
     const randomX = Math.random() * maxX;
-
     const randomY = Math.random() * maxY;
-
     button.style.left = randomX + "px";
-
     button.style.top = randomY + "px";
 }
 
 /* Mobile touch + mouse */
 
 ["touchstart","mouseover","click"].forEach(event=>{
-
     noBtn.addEventListener(event,function(e){
-
         moveButton(noBtn);
-
         createSparkles();
-
-        e.preventDefault();
-
+        if(event === "touchstart") e.preventDefault();
     });
-
     finalNo.addEventListener(event,function(e){
-
         moveButton(finalNo);
-
         createSparkles();
-
-        e.preventDefault();
-
+        if(event === "touchstart") e.preventDefault();
     });
-
 });
 
 /* YES 1 */
 
 yesBtn.addEventListener("click",()=>{
-
     document.getElementById("questionScreen").style.display = "none";
-
     document.getElementById("secondScreen").style.display = "block";
-
     burstHearts();
-
 });
 
 /* YES 2 */
 
 finalYes.addEventListener("click",()=>{
-
     document.getElementById("secondScreen").style.display = "none";
-
     document.getElementById("finalScreen").style.display = "block";
-
     burstHearts();
-
     startMemes();
-
 });
 
 /* Sparkles */
 
 function createSparkles(){
-
     for(let i=0;i<8;i++){
-
         const sparkle = document.createElement("div");
-
         sparkle.classList.add("sparkle");
-
         sparkle.innerHTML = ["✨","💖","💕","🌸"][Math.floor(Math.random()*4)];
-
         sparkle.style.left = Math.random()*100 + "%";
-
         sparkle.style.top = Math.random()*100 + "%";
-
         sparkle.style.animationDuration = (1 + Math.random()*2) + "s";
-
         document.body.appendChild(sparkle);
-
-        setTimeout(()=>{
-            sparkle.remove();
-        },2000);
+        setTimeout(()=> sparkle.remove(),2000);
     }
 }
 
 /* Heart burst */
 
 function burstHearts(){
-
     for(let i=0;i<20;i++){
-
         const burst = document.createElement("div");
-
         burst.innerHTML = ["💖","💕","💘","💞","✨"][Math.floor(Math.random()*5)];
-
         burst.style.position = "fixed";
-
         burst.style.left = "50%";
-
         burst.style.top = "50%";
-
         burst.style.fontSize = (20 + Math.random()*25) + "px";
-
         burst.style.zIndex = "999";
-
         burst.style.transition = "all 1.5s ease";
-
         document.body.appendChild(burst);
-
         setTimeout(()=>{
-
             burst.style.left = Math.random()*100 + "vw";
-
             burst.style.top = Math.random()*100 + "vh";
-
             burst.style.opacity = "0";
-
             burst.style.transform = "scale(2)";
-
         },50);
-
-        setTimeout(()=>{
-            burst.remove();
-        },1600);
+        setTimeout(()=> burst.remove(),1600);
     }
 }
 
-/* Cute Meme Cards */
+/* Cute Meme & Shayari Cards */
 
 const memes = [
-
 {
-emoji:"🥺💖",
-text:"Me waiting for Sunday like...",
-small:"Bas tum aa jana, baaki duniya bhaad mei 😭"
+emoji:"🌸",
+text: "Log kehte hain ki chand khubsurat hai... par shayad unhone tumhe 4 baje subah nahi dekha.",
+small: "Sunday ko main ye khud check karunga 🥺"
 },
-
 {
-emoji:"🧋💕",
-text:"Morning walk ke baad chai date?",
-small:"Main already excited ho chuka hu 😭"
+emoji:"🌅",
+text: "Subah ki thandi hawa aur tumhara saath, kaash tham jaye wo waqt jab hum pakde honge ek dusre ka haath.",
+small: "Best morning ever! 💖"
 },
-
 {
-emoji:"🐼💘",
-text:"Tumhare saath normal walk bhi movie scene lagti hai",
-small:"Background mei romantic song bhi bajega 😭"
+emoji:"🦋",
+text: "Duniya so rahi hogi aur hum apni ek alag duniya mein honge...",
+small: "No disturbance, only us. 😭"
 },
-
 {
-emoji:"🌸💞",
-text:"Tum + Pink Sky + Morning Breeze",
-small:"Literally perfect combination 🥺"
+emoji:"🫠",
+text: "Main toh abhi se Sunday ka wait kar raha hoon!",
+small: "Please 4 baje uth jana, late mat hona 😭"
 },
-
 {
-emoji:"🫶✨",
-text:"Aaj se Sunday officially hamara",
-small:"No arguments accepted 😌"
+emoji:"🥰",
+text: "Teri taarif mein kya likhu... tu khud hi ek puri shayari hai.",
+small: "You are the most beautiful person I know. 🥺"
 },
-
 {
-emoji:"😭💖",
-text:"Mujhe laga tum 'Nahi' dabaa dogi",
-small:"Par tum toh cutest nikli 😭"
-},
-
-{
-emoji:"🐻💕",
-text:"Warning ⚠️",
-small:"Walk ke time bohot jyada pyaar mil sakta hai 😭"
-},
-
-{
-emoji:"🌅💘",
-text:"Sunday Morning Goal",
-small:"Tumhara hand pakad ke walk karna 🥺"
-},
-
-{
-emoji:"💞✨",
-text:"Achievement Unlocked",
-small:"Best Girl Ever 💖"
+emoji:"☕",
+text: "Walk ke baad ek garam chai aur tumhari baatein...",
+small: "Pure bliss! 💞"
 }
-
 ];
 
 let memeIndex = 0;
 
 function startMemes(){
-
     showMeme();
-
     setInterval(()=>{
-
         memeIndex++;
-
-        if(memeIndex >= memes.length){
-            memeIndex = 0;
-        }
-
+        if(memeIndex >= memes.length) memeIndex = 0;
         showMeme();
-
-    },3000);
+    },4000); // 4 seconds interval for reading shayari
 }
 
 function showMeme(){
-
     const memeBox = document.getElementById("memeBox");
-
     memeBox.innerHTML = `
-    
     <div class="meme-card">
-    
         <div class="meme-emoji">${memes[memeIndex].emoji}</div>
-
-        <div class="meme-text">${memes[memeIndex].text}</div>
-
+        <div class="meme-text">"${memes[memeIndex].text}"</div>
         <div class="small">${memes[memeIndex].small}</div>
-
     </div>
-    
     `;
 }
 
 /* Auto tiny hearts on tap */
 
 document.body.addEventListener("click",(e)=>{
-
     const tiny = document.createElement("div");
-
     tiny.innerHTML = "💖";
-
     tiny.style.position = "fixed";
-
     tiny.style.left = e.clientX + "px";
-
     tiny.style.top = e.clientY + "px";
-
     tiny.style.fontSize = "20px";
-
     tiny.style.pointerEvents = "none";
-
     tiny.style.transition = "all 1s ease";
-
     tiny.style.zIndex = "999";
-
     document.body.appendChild(tiny);
-
     setTimeout(()=>{
-
         tiny.style.top = (e.clientY - 80) + "px";
-
         tiny.style.opacity = "0";
-
     },10);
-
-    setTimeout(()=>{
-        tiny.remove();
-    },1000);
-
+    setTimeout(()=> tiny.remove(),1000);
 });
 
 </script>
