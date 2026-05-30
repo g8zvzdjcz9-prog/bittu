@@ -1,458 +1,423 @@
-```html
-<!-- 
-SAVE THIS FILE AS: index.html
-Open in mobile browser ❤️
--->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>For Deepu Baby 💖</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>For My Favorite Person ❤️</title>
 
 <style>
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
--webkit-tap-highlight-color: transparent;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body{
-height:100vh;
-overflow:hidden;
-font-family:Arial, sans-serif;
-background:
-linear-gradient(180deg,#090b1f,#151d3b,#281c3a);
-display:flex;
-justify-content:center;
-align-items:center;
-padding:12px;
-position:relative;
+    font-family: 'Poppins', sans-serif;
+    overflow:hidden;
+    height:100vh;
+    background:
+    radial-gradient(circle at top left,#ffb6d9 0%,transparent 25%),
+    radial-gradient(circle at bottom right,#ffd6f0 0%,transparent 30%),
+    linear-gradient(135deg,#ffeff8,#ffe0ec,#fff0f6);
+    position:relative;
 }
 
-/* BACKGROUND */
+/* Floating hearts */
 
-.stars{
-position:absolute;
-inset:0;
-overflow:hidden;
-z-index:1;
-}
-
-.star{
-position:absolute;
-width:2px;
-height:2px;
-background:white;
-border-radius:50%;
-animation:blink 2s infinite;
+.hearts{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:1;
 }
 
-@keyframes blink{
-0%,100%{
-opacity:.3;
-}
-50%{
-opacity:1;
-}
-}
-
-.moon{
-position:absolute;
-top:40px;
-right:25px;
-width:65px;
-height:65px;
-border-radius:50%;
-background:#fff6c7;
-box-shadow:0 0 40px #fff3b3;
-z-index:2;
+.heart{
+    position:absolute;
+    bottom:-50px;
+    color:rgba(255,255,255,0.7);
+    animation: floatUp linear infinite;
+    font-size:20px;
 }
 
-/* FLOATING HEARTS */
-
-.float-heart{
-position:absolute;
-bottom:-50px;
-font-size:18px;
-animation:floatHeart linear infinite;
-opacity:.6;
+@keyframes floatUp{
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+    }
+    10%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-120vh) rotate(360deg);
+        opacity:0;
+    }
 }
 
-@keyframes floatHeart{
-0%{
-transform:translateY(0);
-opacity:0;
-}
-15%{
-opacity:1;
-}
-100%{
-transform:translateY(-120vh);
-opacity:0;
-}
-}
+/* Main Container */
 
-/* CARD */
+.container{
+    position:relative;
+    z-index:5;
+    width:100%;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
 
 .card{
-position:relative;
-z-index:5;
-width:100%;
-max-width:390px;
-height:94vh;
-background:rgba(255,255,255,.08);
-backdrop-filter:blur(14px);
-border-radius:32px;
-border:1px solid rgba(255,255,255,.1);
-overflow:hidden;
-padding:22px 18px;
-box-shadow:0 10px 40px rgba(0,0,0,.45);
-color:white;
-animation:popup .7s ease;
+    width:100%;
+    max-width:390px;
+    min-height:620px;
+    background:rgba(255,255,255,0.25);
+    backdrop-filter: blur(18px);
+    border:1px solid rgba(255,255,255,0.5);
+    border-radius:35px;
+    box-shadow:0 15px 40px rgba(255,105,180,0.25);
+    padding:28px 22px;
+    position:relative;
+    overflow:hidden;
+    text-align:center;
+    animation:cardPop 1s ease;
 }
 
-@keyframes popup{
-from{
-transform:scale(.8);
-opacity:0;
-}
-to{
-transform:scale(1);
-opacity:1;
-}
+@keyframes cardPop{
+    from{
+        transform:scale(.7);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
 }
 
-/* INTRO */
+/* Decorative glow */
+
+.glow{
+    position:absolute;
+    width:250px;
+    height:250px;
+    background:rgba(255,182,217,.35);
+    border-radius:50%;
+    filter:blur(60px);
+    z-index:-1;
+}
+
+.glow1{
+    top:-80px;
+    left:-50px;
+}
+
+.glow2{
+    bottom:-80px;
+    right:-50px;
+}
+
+/* Intro */
 
 .intro{
-text-align:center;
-margin-top:15px;
+    margin-top:20px;
 }
 
-.cute{
-font-size:65px;
-animation:jump 2s infinite;
+.big-heart{
+    font-size:70px;
+    animation:pulse 1.8s infinite;
 }
 
-@keyframes jump{
-0%,100%{
-transform:translateY(0);
-}
-50%{
-transform:translateY(-7px);
-}
+@keyframes pulse{
+    0%{ transform:scale(1);}
+    50%{ transform:scale(1.15);}
+    100%{ transform:scale(1);}
 }
 
 .title{
-margin-top:12px;
-font-size:32px;
-font-weight:800;
-line-height:1.3;
-background:linear-gradient(90deg,#ffb0d4,#fff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+    font-size:30px;
+    margin-top:15px;
+    color:#ff2f7a;
+    font-weight:800;
 }
 
-.line{
-margin-top:14px;
-font-size:14px;
-line-height:1.8;
-color:#ffe2ee;
+.subtitle{
+    margin-top:12px;
+    color:#6b4a57;
+    line-height:1.6;
+    font-size:15px;
+    padding:0 8px;
 }
 
-.memory{
-margin-top:22px;
-background:rgba(255,255,255,.06);
-border-radius:24px;
-padding:16px;
-text-align:left;
-border:1px solid rgba(255,255,255,.06);
+.start-btn{
+    margin-top:35px;
+    border:none;
+    background:linear-gradient(135deg,#ff4d8d,#ff7eb3);
+    color:white;
+    padding:15px 28px;
+    border-radius:100px;
+    font-size:17px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 10px 25px rgba(255,77,141,.35);
+    transition:.3s;
 }
 
-.memory-title{
-font-size:16px;
-font-weight:700;
-margin-bottom:10px;
-color:#ffb7d7;
+.start-btn:active{
+    transform:scale(.96);
 }
 
-.memory-text{
-font-size:13px;
-line-height:1.8;
-color:#ffe3ed;
-}
-
-.start{
-margin-top:26px;
-border:none;
-background:linear-gradient(135deg,#ff4f98,#ff8dc4);
-color:white;
-padding:15px 28px;
-border-radius:100px;
-font-size:16px;
-font-weight:700;
-box-shadow:0 10px 25px rgba(255,105,180,.3);
-}
-
-.small{
-margin-top:12px;
-font-size:12px;
-color:#ffd9e8;
-}
-
-/* QUESTION SCREEN */
+/* Question section */
 
 .question-screen{
-display:none;
-text-align:center;
-margin-top:10px;
-height:100%;
-}
-
-.walk{
-font-size:65px;
-animation:jump 2s infinite;
+    display:none;
+    height:100%;
+    position:relative;
 }
 
 .question{
-margin-top:16px;
-font-size:28px;
-font-weight:800;
-line-height:1.5;
-color:#ffbddb;
-}
-
-.note{
-margin-top:14px;
-font-size:13px;
-line-height:1.7;
-color:#ffe2ec;
-}
-
-.route{
-margin-top:18px;
-background:rgba(255,255,255,.06);
-padding:16px;
-border-radius:22px;
-font-size:13px;
-line-height:1.8;
-color:#ffe3ed;
-border:1px solid rgba(255,255,255,.06);
-}
-
-.buttons{
-position:relative;
-width:100%;
-height:280px;
-margin-top:22px;
-}
-
-.yes,
-.no,
-.yes2,
-.no2{
-position:absolute;
-border:none;
-padding:15px 22px;
-border-radius:100px;
-font-size:15px;
-font-weight:700;
-cursor:pointer;
-transition:.25s;
-}
-
-.yes{
-left:10px;
-bottom:40px;
-background:linear-gradient(135deg,#ff4f98,#ff8fc6);
-color:white;
-box-shadow:0 10px 25px rgba(255,105,180,.35);
-}
-
-.no{
-right:10px;
-top:20px;
-background:white;
-color:#ff4f98;
-border:2px solid #ff76b6;
-}
-
-/* SECOND */
-
-.second{
-display:none;
-text-align:center;
-margin-top:15px;
-height:100%;
-}
-
-.promise{
-font-size:68px;
-animation:jump 2s infinite;
-}
-
-.question2{
-margin-top:18px;
-font-size:28px;
-font-weight:800;
-line-height:1.6;
-color:#ffbfdc;
+    margin-top:35px;
+    font-size:29px;
+    color:#ff2d74;
+    line-height:1.5;
+    font-weight:800;
 }
 
 .cute-line{
-margin-top:14px;
-font-size:13px;
-line-height:1.7;
-color:#ffe1ec;
+    margin-top:14px;
+    color:#77535f;
+    font-size:14px;
 }
 
-.secret{
-margin-top:20px;
-background:rgba(255,255,255,.06);
-padding:16px;
-border-radius:22px;
-font-size:13px;
-line-height:1.8;
-color:#ffe5ef;
+.walk-img{
+    margin-top:20px;
+    font-size:65px;
+    animation:bounce 2s infinite;
 }
 
-.buttons2{
-position:relative;
-width:100%;
-height:280px;
-margin-top:20px;
+@keyframes bounce{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-8px);
+    }
 }
 
-.yes2{
-left:8px;
-bottom:40px;
-background:linear-gradient(135deg,#ff4f98,#ff8dc4);
-color:white;
-box-shadow:0 10px 25px rgba(255,105,180,.35);
+.buttons{
+    margin-top:40px;
+    position:relative;
+    width:100%;
+    height:240px;
 }
 
-.no2{
-right:8px;
-top:18px;
-background:white;
-color:#ff4f98;
-border:2px solid #ff77b7;
+.yes-btn,
+.no-btn{
+    position:absolute;
+    border:none;
+    border-radius:100px;
+    padding:16px 26px;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.25s;
 }
 
-/* FINAL */
-
-.final{
-display:none;
-text-align:center;
-height:100%;
+.yes-btn{
+    left:20px;
+    bottom:40px;
+    background:linear-gradient(135deg,#ff4f94,#ff7ab9);
+    color:white;
+    box-shadow:0 10px 25px rgba(255,79,148,.4);
 }
 
-.final-heart{
-font-size:75px;
-animation:jump 2s infinite;
+.no-btn{
+    right:20px;
+    top:20px;
+    background:white;
+    color:#ff3f88;
+    border:2px solid #ff5ea0;
 }
 
-.final-title{
-margin-top:12px;
-font-size:32px;
-font-weight:800;
-background:linear-gradient(90deg,#ffb7d9,#fff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+/* Second screen */
+
+.second-screen{
+    display:none;
 }
 
-.final-text{
-margin-top:14px;
-font-size:14px;
-line-height:1.9;
-color:#ffe2ed;
+.second-question{
+    margin-top:40px;
+    font-size:28px;
+    color:#ff2d74;
+    line-height:1.6;
+    font-weight:800;
 }
+
+.promise{
+    font-size:60px;
+    margin-top:18px;
+}
+
+.second-buttons{
+    position:relative;
+    width:100%;
+    height:260px;
+    margin-top:30px;
+}
+
+.final-yes,
+.final-no{
+    position:absolute;
+    border:none;
+    border-radius:100px;
+    padding:16px 24px;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.final-yes{
+    left:15px;
+    bottom:35px;
+    background:linear-gradient(135deg,#ff4f94,#ff8abf);
+    color:white;
+    box-shadow:0 10px 25px rgba(255,79,148,.4);
+}
+
+.final-no{
+    right:15px;
+    top:20px;
+    background:white;
+    color:#ff4f94;
+    border:2px solid #ff6ba8;
+}
+
+/* Final screen */
+
+.final-screen{
+    display:none;
+    height:100%;
+    position:relative;
+}
+
+.success-heart{
+    font-size:75px;
+    animation:pulse 1.5s infinite;
+    margin-top:10px;
+}
+
+.success-title{
+    font-size:30px;
+    color:#ff2d74;
+    margin-top:12px;
+    font-weight:800;
+}
+
+.success-text{
+    margin-top:15px;
+    line-height:1.7;
+    color:#6e4d58;
+    font-size:15px;
+}
+
+/* Meme cards */
 
 .meme-box{
-margin-top:22px;
-height:240px;
-position:relative;
+    margin-top:25px;
+    height:220px;
+    position:relative;
 }
 
-.meme{
-position:absolute;
-inset:0;
-background:rgba(255,255,255,.06);
-border-radius:26px;
-padding:18px;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-animation:fade .6s ease;
-border:1px solid rgba(255,255,255,.06);
+.meme-card{
+    position:absolute;
+    inset:0;
+    background:rgba(255,255,255,.45);
+    border-radius:28px;
+    padding:22px 18px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    animation:fadeIn .6s ease;
 }
 
-@keyframes fade{
-from{
-opacity:0;
-transform:translateY(20px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 .meme-emoji{
-font-size:58px;
+    font-size:60px;
 }
 
-.meme-title{
-margin-top:14px;
-font-size:20px;
-line-height:1.5;
-font-weight:700;
-color:#ffbddb;
+.meme-text{
+    margin-top:15px;
+    font-size:18px;
+    color:#ff2f79;
+    line-height:1.5;
+    font-weight:700;
 }
 
-.meme-small{
-margin-top:10px;
-font-size:13px;
-line-height:1.7;
-color:#ffe3ed;
+.small{
+    margin-top:10px;
+    font-size:13px;
+    color:#7b5964;
+    line-height:1.6;
 }
 
 .footer{
-position:absolute;
-bottom:12px;
-left:0;
-right:0;
-text-align:center;
-font-size:12px;
-color:#ffe0eb;
+    position:absolute;
+    bottom:18px;
+    left:0;
+    right:0;
+    font-size:13px;
+    color:#9d7180;
 }
 
-/* SPARK */
-
-.spark{
-position:absolute;
-font-size:20px;
-pointer-events:none;
-animation:spark 1.5s linear forwards;
+.sparkle{
+    position:absolute;
+    font-size:20px;
+    animation:sparkle 2s linear infinite;
 }
 
-@keyframes spark{
-0%{
-opacity:0;
-transform:translateY(0) scale(.6);
+@keyframes sparkle{
+    0%{
+        opacity:0;
+        transform:translateY(10px) scale(0.7);
+    }
+    50%{
+        opacity:1;
+    }
+    100%{
+        opacity:0;
+        transform:translateY(-20px) scale(1.2);
+    }
 }
-30%{
-opacity:1;
+
+.music-btn{
+    position:absolute;
+    top:18px;
+    right:18px;
+    width:48px;
+    height:48px;
+    border:none;
+    border-radius:50%;
+    background:white;
+    font-size:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,.1);
 }
-100%{
-opacity:0;
-transform:translateY(-70px) scale(1.4);
-}
+
+.tap-note{
+    margin-top:18px;
+    font-size:13px;
+    color:#8b6572;
 }
 
 </style>
@@ -460,53 +425,38 @@ transform:translateY(-70px) scale(1.4);
 
 <body>
 
-<div class="stars" id="stars"></div>
+<div class="hearts" id="hearts"></div>
 
-<div class="moon"></div>
+<div class="container">
 
 <div class="card">
+
+<div class="glow glow1"></div>
+<div class="glow glow2"></div>
+
+<button class="music-btn" onclick="playMusic()">🎵</button>
 
 <!-- INTRO -->
 
 <div class="intro" id="intro">
 
-<div class="cute">🌄💖</div>
+<div class="big-heart">💖</div>
 
 <div class="title">
-For Deepu Baby 💕
+Hey Beautiful
 </div>
 
-<div class="line">
-Hamari 4 baje wali secret walks >>> 😭💞
+<div class="subtitle">
+Aaj tumhare liye ek chhoti si cute surprise website banayi hai ✨<br><br>
+Isko pura dekhna... warna mera dil thoda sa toot jayega 🥺
 </div>
 
-<div class="memory">
-
-<div class="memory-title">
-🌌 Hamari Secret Morning Walk
-</div>
-
-<div class="memory-text">
-
-Poora gaon so raha hota hai... 🌙<br><br>
-
-Aur tab meri favorite ladki chupke se walk par aati hai 😭💖<br><br>
-
-Thandi hawa 🌾<br>
-Khali raste 🌌<br>
-Aur Deepu Baby ka saath 🥺💞<br><br>
-
-Fir hum dono jaldi ghar aa jate hai kyuki koi dekh na le 😭💕
-</div>
-
-</div>
-
-<button class="start" onclick="startQuestions()">
-Secret Message Open Karo 💌
+<button class="start-btn" onclick="startQuestions()">
+Tap Here Princess 💌
 </button>
 
-<div class="small">
-Warning: Bohot jyada pyaar hai is website mei 😭
+<div class="tap-note">
+Made with too much love 💕
 </div>
 
 </div>
@@ -515,30 +465,25 @@ Warning: Bohot jyada pyaar hai is website mei 😭
 
 <div class="question-screen" id="questionScreen">
 
-<div class="walk">🚶‍♀️💕</div>
+<div class="walk-img">🌅🚶‍♀️</div>
 
 <div class="question">
-Deepu Baby...<br>
-Kal 4 Baje Walk Par Chlogi? 🥺
+Sunday Morning<br>
+Walk Par Chlogi? 💕
 </div>
 
-<div class="note">
-Promise... jaldi ghar wapas aa jayenge 😭💖<br>
-Kisi ko pata bhi nahi chalega 🌙
-</div>
-
-<div class="route">
-🌾 Gaon ke raste + Subah ki hawa + Tum = Best Feeling Ever 💞
+<div class="cute-line">
+Please "Nahi" mat dabana warna vo bhaag jayega 😭
 </div>
 
 <div class="buttons">
 
-<button class="yes" id="yes">
+<button class="yes-btn" id="yesBtn">
 Haa Chlenge 💖
 </button>
 
-<button class="no" id="no">
-Nahi 😭
+<button class="no-btn" id="noBtn">
+Nahi 😶
 </button>
 
 </div>
@@ -547,34 +492,28 @@ Nahi 😭
 
 <!-- QUESTION 2 -->
 
-<div class="second" id="second">
+<div class="second-screen" id="secondScreen">
 
-<div class="promise">🥺💞</div>
+<div class="promise">
+🥹💞
+</div>
 
-<div class="question2">
-Pakka Aaogi Na?<br>
-Mujhe Akela Toh Nahi Chhodogi? 😭
+<div class="second-question">
+Pakka Chlogi Na?<br>
+Mujhe Ignore Toh Nahi Krogi? 🥺
 </div>
 
 <div class="cute-line">
-"Nahi" pakadne ki koshish mat karo 😏<br>
-Vo already darr ke bhaag raha hai 😭
+Iss baar bhi "Nahi" button pakad ke dikhao 😏
 </div>
 
-<div class="secret">
-4 baje wali walks normal nahi hoti... 🌌<br><br>
+<div class="second-buttons">
 
-Vo memories hoti hai 💖<br>
-Jo sirf hum dono ko yaad rahengi 🥺💕
-</div>
-
-<div class="buttons2">
-
-<button class="yes2" id="yes2">
+<button class="final-yes" id="finalYes">
 Haa Baby Pakka 💘
 </button>
 
-<button class="no2" id="no2">
+<button class="final-no" id="finalNo">
 Nahi 😭
 </button>
 
@@ -584,340 +523,368 @@ Nahi 😭
 
 <!-- FINAL -->
 
-<div class="final" id="final">
+<div class="final-screen" id="finalScreen">
 
-<div class="final-heart">💖</div>
-
-<div class="final-title">
-Yayyyyy 😭💕
+<div class="success-heart">
+💞
 </div>
 
-<div class="final-text">
-Ab kal ki walk officially fixed 💞<br><br>
+<div class="success-title">
+Yayyyyy 😭💖
+</div>
 
-Tum + Main + 4 baje ka sky 🌌<br>
-Aur chupke chupke walk 😭💖
+<div class="success-text">
+Ab Sunday special ho gaya ✨<br>
+Tum + Morning Walk + Cute Talks + Chai = Perfect Day 💕
 </div>
 
 <div class="meme-box" id="memeBox"></div>
 
 <div class="footer">
-Made Only For Deepu Baby 💕
+Tum smile karti ho toh literally sab cute lagta hai 🥺
 </div>
 
 </div>
 
 </div>
+</div>
+
+<audio id="bgMusic" loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8f7b3b734.mp3?filename=love-ambient-110997.mp3" type="audio/mp3">
+</audio>
 
 <script>
 
-/* STARS */
+/* Floating hearts */
 
-const stars=document.getElementById("stars");
+const hearts = document.getElementById("hearts");
 
-for(let i=0;i<70;i++){
+for(let i=0;i<35;i++){
 
-let star=document.createElement("div");
+    let heart = document.createElement("div");
+    heart.classList.add("heart");
 
-star.classList.add("star");
+    heart.innerHTML = ["💖","💕","💗","💘","💞","✨"][Math.floor(Math.random()*6)];
 
-star.style.top=Math.random()*100+"%";
-star.style.left=Math.random()*100+"%";
+    heart.style.left = Math.random()*100 + "vw";
 
-star.style.animationDuration=(1+Math.random()*3)+"s";
+    heart.style.animationDuration = (6 + Math.random()*8) + "s";
 
-stars.appendChild(star);
+    heart.style.fontSize = (16 + Math.random()*24) + "px";
 
+    heart.style.opacity = Math.random();
+
+    heart.style.animationDelay = Math.random()*5 + "s";
+
+    hearts.appendChild(heart);
 }
 
-/* FLOATING HEARTS */
+/* Music */
 
-for(let i=0;i<30;i++){
+function playMusic(){
 
-let heart=document.createElement("div");
+    let music = document.getElementById("bgMusic");
 
-heart.classList.add("float-heart");
-
-heart.innerHTML=["💖","💕","✨","💘","🌸"][Math.floor(Math.random()*5)];
-
-heart.style.left=Math.random()*100+"vw";
-
-heart.style.fontSize=(15+Math.random()*20)+"px";
-
-heart.style.animationDuration=(6+Math.random()*8)+"s";
-
-heart.style.animationDelay=Math.random()*5+"s";
-
-stars.appendChild(heart);
-
+    if(music.paused){
+        music.play();
+    }else{
+        music.pause();
+    }
 }
 
-/* START */
+/* Screen control */
 
 function startQuestions(){
 
-document.getElementById("intro").style.display="none";
+    document.getElementById("intro").style.display = "none";
 
-document.getElementById("questionScreen").style.display="block";
-
-burst();
-
+    document.getElementById("questionScreen").style.display = "block";
 }
 
-/* BUTTONS */
+/* Buttons */
 
-const no=document.getElementById("no");
-const no2=document.getElementById("no2");
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
 
-function move(btn){
+const finalNo = document.getElementById("finalNo");
+const finalYes = document.getElementById("finalYes");
 
-const parent=btn.parentElement;
+/* Moving No Button */
 
-const parentRect=parent.getBoundingClientRect();
+function moveButton(button){
 
-const btnRect=btn.getBoundingClientRect();
+    const parent = button.parentElement;
 
-const maxX=parentRect.width-btnRect.width-10;
+    const parentRect = parent.getBoundingClientRect();
 
-const maxY=parentRect.height-btnRect.height-10;
+    const btnRect = button.getBoundingClientRect();
 
-btn.style.left=Math.random()*maxX+"px";
+    const maxX = parentRect.width - btnRect.width - 10;
 
-btn.style.top=Math.random()*maxY+"px";
+    const maxY = parentRect.height - btnRect.height - 10;
 
-sparkles();
+    const randomX = Math.random() * maxX;
 
+    const randomY = Math.random() * maxY;
+
+    button.style.left = randomX + "px";
+
+    button.style.top = randomY + "px";
 }
+
+/* Mobile touch + mouse */
 
 ["touchstart","mouseover","click"].forEach(event=>{
 
-no.addEventListener(event,(e)=>{
+    noBtn.addEventListener(event,function(e){
 
-move(no);
+        moveButton(noBtn);
 
-e.preventDefault();
+        createSparkles();
 
-});
+        e.preventDefault();
 
-no2.addEventListener(event,(e)=>{
+    });
 
-move(no2);
+    finalNo.addEventListener(event,function(e){
 
-e.preventDefault();
+        moveButton(finalNo);
 
-});
+        createSparkles();
 
-});
+        e.preventDefault();
 
-/* YES BUTTONS */
-
-document.getElementById("yes").addEventListener("click",()=>{
-
-document.getElementById("questionScreen").style.display="none";
-
-document.getElementById("second").style.display="block";
-
-burst();
+    });
 
 });
 
-document.getElementById("yes2").addEventListener("click",()=>{
+/* YES 1 */
 
-document.getElementById("second").style.display="none";
+yesBtn.addEventListener("click",()=>{
 
-document.getElementById("final").style.display="block";
+    document.getElementById("questionScreen").style.display = "none";
 
-burst();
+    document.getElementById("secondScreen").style.display = "block";
 
-startMemes();
+    burstHearts();
 
 });
 
-/* SPARKLES */
+/* YES 2 */
 
-function sparkles(){
+finalYes.addEventListener("click",()=>{
 
-for(let i=0;i<8;i++){
+    document.getElementById("secondScreen").style.display = "none";
 
-let spark=document.createElement("div");
+    document.getElementById("finalScreen").style.display = "block";
 
-spark.classList.add("spark");
+    burstHearts();
 
-spark.innerHTML=["✨","💖","💕","🌸"][Math.floor(Math.random()*4)];
+    startMemes();
 
-spark.style.left=Math.random()*100+"vw";
+});
 
-spark.style.top=Math.random()*100+"vh";
+/* Sparkles */
 
-document.body.appendChild(spark);
+function createSparkles(){
 
-setTimeout(()=>{
-spark.remove();
-},1500);
+    for(let i=0;i<8;i++){
 
+        const sparkle = document.createElement("div");
+
+        sparkle.classList.add("sparkle");
+
+        sparkle.innerHTML = ["✨","💖","💕","🌸"][Math.floor(Math.random()*4)];
+
+        sparkle.style.left = Math.random()*100 + "%";
+
+        sparkle.style.top = Math.random()*100 + "%";
+
+        sparkle.style.animationDuration = (1 + Math.random()*2) + "s";
+
+        document.body.appendChild(sparkle);
+
+        setTimeout(()=>{
+            sparkle.remove();
+        },2000);
+    }
 }
 
+/* Heart burst */
+
+function burstHearts(){
+
+    for(let i=0;i<20;i++){
+
+        const burst = document.createElement("div");
+
+        burst.innerHTML = ["💖","💕","💘","💞","✨"][Math.floor(Math.random()*5)];
+
+        burst.style.position = "fixed";
+
+        burst.style.left = "50%";
+
+        burst.style.top = "50%";
+
+        burst.style.fontSize = (20 + Math.random()*25) + "px";
+
+        burst.style.zIndex = "999";
+
+        burst.style.transition = "all 1.5s ease";
+
+        document.body.appendChild(burst);
+
+        setTimeout(()=>{
+
+            burst.style.left = Math.random()*100 + "vw";
+
+            burst.style.top = Math.random()*100 + "vh";
+
+            burst.style.opacity = "0";
+
+            burst.style.transform = "scale(2)";
+
+        },50);
+
+        setTimeout(()=>{
+            burst.remove();
+        },1600);
+    }
 }
 
-/* HEART BURST */
+/* Cute Meme Cards */
 
-function burst(){
-
-for(let i=0;i<25;i++){
-
-let heart=document.createElement("div");
-
-heart.innerHTML=["💖","💕","💘","✨"][Math.floor(Math.random()*4)];
-
-heart.style.position="fixed";
-
-heart.style.left="50%";
-
-heart.style.top="50%";
-
-heart.style.fontSize=(20+Math.random()*20)+"px";
-
-heart.style.transition="all 1.5s ease";
-
-heart.style.zIndex="999";
-
-document.body.appendChild(heart);
-
-setTimeout(()=>{
-
-heart.style.left=Math.random()*100+"vw";
-
-heart.style.top=Math.random()*100+"vh";
-
-heart.style.opacity="0";
-
-},50);
-
-setTimeout(()=>{
-heart.remove();
-},1500);
-
-}
-
-}
-
-/* MEMES */
-
-const memes=[
+const memes = [
 
 {
-emoji:"🌄💖",
-title:"4 baje wali walk >>> duniya ki saari dates",
-small:"Kyuki usme sirf tum hoti ho 😭💕"
+emoji:"🥺💖",
+text:"Me waiting for Sunday like...",
+small:"Bas tum aa jana, baaki duniya bhaad mei 😭"
 },
 
 {
-emoji:"🥺💞",
-title:"Jaldi ghar aana padta hai...",
-small:"Par dil aur walk karna chahta hai 😭"
+emoji:"🧋💕",
+text:"Morning walk ke baad chai date?",
+small:"Main already excited ho chuka hu 😭"
 },
 
 {
-emoji:"🌾💕",
-title:"Gaon ke raste bhi cute lagte hai",
-small:"Jab tum saath chalti ho 💖"
+emoji:"🐼💘",
+text:"Tumhare saath normal walk bhi movie scene lagti hai",
+small:"Background mei romantic song bhi bajega 😭"
 },
 
 {
-emoji:"🌌💘",
-title:"Sab so rahe hote hai...",
-small:"Aur hum memories bana rahe hote hai 😭"
+emoji:"🌸💞",
+text:"Tum + Pink Sky + Morning Breeze",
+small:"Literally perfect combination 🥺"
 },
 
 {
 emoji:"🫶✨",
-title:"Tum haste ho toh subah aur sundar lagti hai",
-small:"Literal movie vibes 😭💕"
+text:"Aaj se Sunday officially hamara",
+small:"No arguments accepted 😌"
 },
 
 {
-emoji:"💖🥹",
-title:"Official Truth",
-small:"Deepu Baby = Favorite Person 💞"
+emoji:"😭💖",
+text:"Mujhe laga tum 'Nahi' dabaa dogi",
+small:"Par tum toh cutest nikli 😭"
+},
+
+{
+emoji:"🐻💕",
+text:"Warning ⚠️",
+small:"Walk ke time bohot jyada pyaar mil sakta hai 😭"
+},
+
+{
+emoji:"🌅💘",
+text:"Sunday Morning Goal",
+small:"Tumhara hand pakad ke walk karna 🥺"
+},
+
+{
+emoji:"💞✨",
+text:"Achievement Unlocked",
+small:"Best Girl Ever 💖"
 }
 
 ];
 
-let memeIndex=0;
+let memeIndex = 0;
 
 function startMemes(){
 
-showMeme();
+    showMeme();
 
-setInterval(()=>{
+    setInterval(()=>{
 
-memeIndex++;
+        memeIndex++;
 
-if(memeIndex>=memes.length){
-memeIndex=0;
-}
+        if(memeIndex >= memes.length){
+            memeIndex = 0;
+        }
 
-showMeme();
+        showMeme();
 
-},3000);
-
+    },3000);
 }
 
 function showMeme(){
 
-const box=document.getElementById("memeBox");
+    const memeBox = document.getElementById("memeBox");
 
-box.innerHTML=`
+    memeBox.innerHTML = `
+    
+    <div class="meme-card">
+    
+        <div class="meme-emoji">${memes[memeIndex].emoji}</div>
 
-<div class="meme">
+        <div class="meme-text">${memes[memeIndex].text}</div>
 
-<div class="meme-emoji">${memes[memeIndex].emoji}</div>
+        <div class="small">${memes[memeIndex].small}</div>
 
-<div class="meme-title">${memes[memeIndex].title}</div>
-
-<div class="meme-small">${memes[memeIndex].small}</div>
-
-</div>
-
-`;
-
+    </div>
+    
+    `;
 }
 
-/* CLICK HEARTS */
+/* Auto tiny hearts on tap */
 
 document.body.addEventListener("click",(e)=>{
 
-let heart=document.createElement("div");
+    const tiny = document.createElement("div");
 
-heart.innerHTML="💖";
+    tiny.innerHTML = "💖";
 
-heart.style.position="fixed";
+    tiny.style.position = "fixed";
 
-heart.style.left=e.clientX+"px";
+    tiny.style.left = e.clientX + "px";
 
-heart.style.top=e.clientY+"px";
+    tiny.style.top = e.clientY + "px";
 
-heart.style.fontSize="18px";
+    tiny.style.fontSize = "20px";
 
-heart.style.transition="all 1s ease";
+    tiny.style.pointerEvents = "none";
 
-heart.style.pointerEvents="none";
+    tiny.style.transition = "all 1s ease";
 
-heart.style.zIndex="999";
+    tiny.style.zIndex = "999";
 
-document.body.appendChild(heart);
+    document.body.appendChild(tiny);
 
-setTimeout(()=>{
+    setTimeout(()=>{
 
-heart.style.top=(e.clientY-60)+"px";
+        tiny.style.top = (e.clientY - 80) + "px";
 
-heart.style.opacity="0";
+        tiny.style.opacity = "0";
 
-},10);
+    },10);
 
-setTimeout(()=>{
-heart.remove();
-},1000);
+    setTimeout(()=>{
+        tiny.remove();
+    },1000);
 
 });
 
@@ -925,4 +892,3 @@ heart.remove();
 
 </body>
 </html>
-```
