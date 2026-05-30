@@ -1,511 +1,928 @@
+```html
+<!-- 
+SAVE THIS FILE AS: index.html
+Open in mobile browser ❤️
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- 
-        PROJECT: For Deppu (The Queen of My Heart)
-        LINES: Optimized for length, beauty, and mobile responsiveness
-        FEATURES: Floating Pink Hearts, Typewriter Effect, Music, Interactive Gallery, 
-                  Long Hinglish Letter, Celebration Effects.
-    -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Only For You baby ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>For Deepu Baby 💖</title>
 
-    <!-- Google Fonts Integration -->
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Dancing+Script:wght@700&family=Montserrat:wght@300;600&family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+<style>
 
-    <style>
-        /* 
-           =========================================
-           CSS DESIGN - ROMANTIC PINK THEME
-           =========================================
-        */
-        :root {
-            --primary-pink: #ff85a2;
-            --dark-pink: #ff4d6d;
-            --soft-rose: #fff0f3;
-            --deep-maroon: #590d22;
-            --gold: #ffb703;
-            --white: #ffffff;
-        }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+-webkit-tap-highlight-color: transparent;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
+body{
+height:100vh;
+overflow:hidden;
+font-family:Arial, sans-serif;
+background:
+linear-gradient(180deg,#090b1f,#151d3b,#281c3a);
+display:flex;
+justify-content:center;
+align-items:center;
+padding:12px;
+position:relative;
+}
 
-        body {
-            background-color: var(--soft-rose);
-            font-family: 'Quicksand', sans-serif;
-            color: var(--deep-maroon);
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
+/* BACKGROUND */
 
-        /* --- PRELOADER --- */
-        #loader {
-            position: fixed;
-            width: 100%;
-            height: 100vh;
-            background: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            flex-direction: column;
-        }
+.stars{
+position:absolute;
+inset:0;
+overflow:hidden;
+z-index:1;
+}
 
-        .heart-beat {
-            width: 80px;
-            height: 80px;
-            background-color: var(--dark-pink);
-            position: relative;
-            transform: rotate(45deg);
-            animation: beat 0.8s infinite;
-        }
+.star{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+border-radius:50%;
+animation:blink 2s infinite;
+}
 
-        .heart-beat::before, .heart-beat::after {
-            content: "";
-            width: 80px;
-            height: 80px;
-            background-color: var(--dark-pink);
-            border-radius: 50%;
-            position: absolute;
-        }
+@keyframes blink{
+0%,100%{
+opacity:.3;
+}
+50%{
+opacity:1;
+}
+}
 
-        .heart-beat::before { top: -40px; left: 0; }
-        .heart-beat::after { top: 0; left: -40px; }
+.moon{
+position:absolute;
+top:40px;
+right:25px;
+width:65px;
+height:65px;
+border-radius:50%;
+background:#fff6c7;
+box-shadow:0 0 40px #fff3b3;
+z-index:2;
+}
 
-        @keyframes beat {
-            0% { transform: scale(1) rotate(45deg); }
-            50% { transform: scale(1.2) rotate(45deg); }
-            100% { transform: scale(1) rotate(45deg); }
-        }
+/* FLOATING HEARTS */
 
-        /* --- PINK HEARTS BACKGROUND --- */
-        #hearts-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-        }
+.float-heart{
+position:absolute;
+bottom:-50px;
+font-size:18px;
+animation:floatHeart linear infinite;
+opacity:.6;
+}
 
-        .floating-heart {
-            position: absolute;
-            bottom: -100px;
-            color: var(--primary-pink);
-            user-select: none;
-            filter: drop-shadow(0 0 5px rgba(255, 133, 162, 0.3));
-            animation: floatUp linear forwards;
-        }
+@keyframes floatHeart{
+0%{
+transform:translateY(0);
+opacity:0;
+}
+15%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
 
-        @keyframes floatUp {
-            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(-115vh) rotate(360deg); opacity: 0; }
-        }
+/* CARD */
 
-        /* --- NAVIGATION / MUSIC CONTROL --- */
-        .music-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            font-size: 24px;
-            border: 2px solid var(--primary-pink);
-        }
+.card{
+position:relative;
+z-index:5;
+width:100%;
+max-width:390px;
+height:94vh;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(14px);
+border-radius:32px;
+border:1px solid rgba(255,255,255,.1);
+overflow:hidden;
+padding:22px 18px;
+box-shadow:0 10px 40px rgba(0,0,0,.45);
+color:white;
+animation:popup .7s ease;
+}
 
-        /* --- HERO SECTION --- */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-            background: linear-gradient(rgba(255, 240, 243, 0.4), rgba(255, 240, 243, 0.4));
-        }
+@keyframes popup{
+from{
+transform:scale(.8);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
 
-        .hero h1 {
-            font-family: 'Pacifico', cursive;
-            font-size: 3.5rem;
-            color: var(--dark-pink);
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.05);
-        }
+/* INTRO */
 
-        .typewriter {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.8rem;
-            color: var(--deep-maroon);
-            min-height: 40px;
-        }
+.intro{
+text-align:center;
+margin-top:15px;
+}
 
-        .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            animation: bounce 2s infinite;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--dark-pink);
-        }
+.cute{
+font-size:65px;
+animation:jump 2s infinite;
+}
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-15px);}
-            60% {transform: translateY(-7px);}
-        }
+@keyframes jump{
+0%,100%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-7px);
+}
+}
 
-        /* --- CONTENT CARDS --- */
-        section {
-            padding: 80px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+.title{
+margin-top:12px;
+font-size:32px;
+font-weight:800;
+line-height:1.3;
+background:linear-gradient(90deg,#ffb0d4,#fff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
 
-        .card {
-            background: var(--white);
-            width: 100%;
-            max-width: 400px;
-            padding: 30px;
-            border-radius: 30px;
-            box-shadow: 0 15px 35px rgba(255, 77, 109, 0.1);
-            margin-bottom: 40px;
-            border: 1px solid #ffe5ec;
-            transition: transform 0.3s ease;
-        }
+.line{
+margin-top:14px;
+font-size:14px;
+line-height:1.8;
+color:#ffe2ee;
+}
 
-        .card:hover { transform: scale(1.02); }
+.memory{
+margin-top:22px;
+background:rgba(255,255,255,.06);
+border-radius:24px;
+padding:16px;
+text-align:left;
+border:1px solid rgba(255,255,255,.06);
+}
 
-        .card h2 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.5rem;
-            color: var(--dark-pink);
-            margin-bottom: 15px;
-        }
+.memory-title{
+font-size:16px;
+font-weight:700;
+margin-bottom:10px;
+color:#ffb7d7;
+}
 
-        .card p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
+.memory-text{
+font-size:13px;
+line-height:1.8;
+color:#ffe3ed;
+}
 
-        /* --- THE LONG WHATSAPP LETTER --- */
-        .big-letter-container {
-            width: 100%;
-            max-width: 700px;
-            background: white;
-            padding: 50px 30px;
-            border-radius: 40px 0 40px 0;
-            box-shadow: 20px 20px 60px rgba(0,0,0,0.05);
-            border-left: 10px solid var(--dark-pink);
-            margin: 50px 0;
-            position: relative;
-        }
+.start{
+margin-top:26px;
+border:none;
+background:linear-gradient(135deg,#ff4f98,#ff8dc4);
+color:white;
+padding:15px 28px;
+border-radius:100px;
+font-size:16px;
+font-weight:700;
+box-shadow:0 10px 25px rgba(255,105,180,.3);
+}
 
-        .big-letter-container::after {
-            content: '💌';
-            position: absolute;
-            top: -25px;
-            right: 20px;
-            font-size: 3rem;
-        }
+.small{
+margin-top:12px;
+font-size:12px;
+color:#ffd9e8;
+}
 
-        .whatsapp-style-text {
-            font-family: 'Caveat', cursive;
-            font-size: 2rem;
-            line-height: 1.4;
-            color: #2b2d42;
-            text-align: left;
-            white-space: pre-line;
-        }
+/* QUESTION SCREEN */
 
-        .highlight {
-            color: var(--dark-pink);
-            font-weight: bold;
-        }
+.question-screen{
+display:none;
+text-align:center;
+margin-top:10px;
+height:100%;
+}
 
-        /* --- REASONS SECTION --- */
-        .reasons-title {
-            font-family: 'Pacifico', cursive;
-            font-size: 2.2rem;
-            color: var(--dark-pink);
-            margin-bottom: 40px;
-            text-align: center;
-        }
+.walk{
+font-size:65px;
+animation:jump 2s infinite;
+}
 
-        .reason-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            width: 100%;
-            max-width: 500px;
-        }
+.question{
+margin-top:16px;
+font-size:28px;
+font-weight:800;
+line-height:1.5;
+color:#ffbddb;
+}
 
-        .reason-item {
-            background: #fff;
-            padding: 20px;
-            border-radius: 15px;
-            border-left: 5px solid var(--primary-pink);
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.02);
-        }
+.note{
+margin-top:14px;
+font-size:13px;
+line-height:1.7;
+color:#ffe2ec;
+}
 
-        /* --- FINAL ACTION --- */
-        .final-section {
-            background: var(--dark-pink);
-            color: white;
-            padding: 100px 20px;
-            width: 100%;
-            text-align: center;
-        }
+.route{
+margin-top:18px;
+background:rgba(255,255,255,.06);
+padding:16px;
+border-radius:22px;
+font-size:13px;
+line-height:1.8;
+color:#ffe3ed;
+border:1px solid rgba(255,255,255,.06);
+}
 
-        .final-section h2 {
-            font-family: 'Pacifico', cursive;
-            font-size: 2.8rem;
-            margin-bottom: 30px;
-        }
+.buttons{
+position:relative;
+width:100%;
+height:280px;
+margin-top:22px;
+}
 
-        .btn-group {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            align-items: center;
-        }
+.yes,
+.no,
+.yes2,
+.no2{
+position:absolute;
+border:none;
+padding:15px 22px;
+border-radius:100px;
+font-size:15px;
+font-weight:700;
+cursor:pointer;
+transition:.25s;
+}
 
-        .btn {
-            background: white;
-            color: var(--dark-pink);
-            padding: 20px 50px;
-            border-radius: 50px;
-            font-size: 1.5rem;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            transition: 0.3s;
-            width: 80%;
-            max-width: 300px;
-        }
+.yes{
+left:10px;
+bottom:40px;
+background:linear-gradient(135deg,#ff4f98,#ff8fc6);
+color:white;
+box-shadow:0 10px 25px rgba(255,105,180,.35);
+}
 
-        .btn:active { transform: scale(0.9); }
+.no{
+right:10px;
+top:20px;
+background:white;
+color:#ff4f98;
+border:2px solid #ff76b6;
+}
 
-        footer {
-            padding: 40px;
-            text-align: center;
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
+/* SECOND */
 
-        /* --- MOBILE RESPONSIVE --- */
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 2.8rem; }
-            .whatsapp-style-text { font-size: 1.6rem; }
-            .card h2 { font-size: 2rem; }
-            .btn { width: 100%; padding: 15px 30px; }
-        }
+.second{
+display:none;
+text-align:center;
+margin-top:15px;
+height:100%;
+}
 
-        /* Adding extra padding to increase line count visually and improve layout */
-        .spacer { height: 50px; }
-    </style>
+.promise{
+font-size:68px;
+animation:jump 2s infinite;
+}
+
+.question2{
+margin-top:18px;
+font-size:28px;
+font-weight:800;
+line-height:1.6;
+color:#ffbfdc;
+}
+
+.cute-line{
+margin-top:14px;
+font-size:13px;
+line-height:1.7;
+color:#ffe1ec;
+}
+
+.secret{
+margin-top:20px;
+background:rgba(255,255,255,.06);
+padding:16px;
+border-radius:22px;
+font-size:13px;
+line-height:1.8;
+color:#ffe5ef;
+}
+
+.buttons2{
+position:relative;
+width:100%;
+height:280px;
+margin-top:20px;
+}
+
+.yes2{
+left:8px;
+bottom:40px;
+background:linear-gradient(135deg,#ff4f98,#ff8dc4);
+color:white;
+box-shadow:0 10px 25px rgba(255,105,180,.35);
+}
+
+.no2{
+right:8px;
+top:18px;
+background:white;
+color:#ff4f98;
+border:2px solid #ff77b7;
+}
+
+/* FINAL */
+
+.final{
+display:none;
+text-align:center;
+height:100%;
+}
+
+.final-heart{
+font-size:75px;
+animation:jump 2s infinite;
+}
+
+.final-title{
+margin-top:12px;
+font-size:32px;
+font-weight:800;
+background:linear-gradient(90deg,#ffb7d9,#fff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.final-text{
+margin-top:14px;
+font-size:14px;
+line-height:1.9;
+color:#ffe2ed;
+}
+
+.meme-box{
+margin-top:22px;
+height:240px;
+position:relative;
+}
+
+.meme{
+position:absolute;
+inset:0;
+background:rgba(255,255,255,.06);
+border-radius:26px;
+padding:18px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+animation:fade .6s ease;
+border:1px solid rgba(255,255,255,.06);
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.meme-emoji{
+font-size:58px;
+}
+
+.meme-title{
+margin-top:14px;
+font-size:20px;
+line-height:1.5;
+font-weight:700;
+color:#ffbddb;
+}
+
+.meme-small{
+margin-top:10px;
+font-size:13px;
+line-height:1.7;
+color:#ffe3ed;
+}
+
+.footer{
+position:absolute;
+bottom:12px;
+left:0;
+right:0;
+text-align:center;
+font-size:12px;
+color:#ffe0eb;
+}
+
+/* SPARK */
+
+.spark{
+position:absolute;
+font-size:20px;
+pointer-events:none;
+animation:spark 1.5s linear forwards;
+}
+
+@keyframes spark{
+0%{
+opacity:0;
+transform:translateY(0) scale(.6);
+}
+30%{
+opacity:1;
+}
+100%{
+opacity:0;
+transform:translateY(-70px) scale(1.4);
+}
+}
+
+</style>
 </head>
+
 <body>
 
-    <!-- PRELOADER -->
-    <div id="loader">
-        <div class="heart-beat"></div>
-        <p style="margin-top: 60px; font-weight: 600; color: #ff4d6d;">Loading My Love For Babudi...</p>
-    </div>
+<div class="stars" id="stars"></div>
 
-    <!-- MUSIC -->
-    <div class="music-btn" onclick="toggleMusic()" id="musicBtn">🎵</div>
-    <audio id="romanticSong" loop>
-        <source src="https://www.chosic.com/wp-content/uploads/2021/07/The-Kiss.mp3" type="audio/mpeg">
-    </audio>
+<div class="moon"></div>
 
-    <!-- HEARTS BACKGROUND -->
-    <div id="hearts-bg"></div>
+<div class="card">
 
-    <!-- PAGE 1: HERO -->
-    <section class="hero">
-        <h1>Hi Deppu ❤️</h1>
-        <div class="typewriter" id="typewriter"></div>
-        <div class="scroll-indicator">Scroll Karo Baby 👇</div>
-    </section>
+<!-- INTRO -->
 
-    <!-- PAGE 2: NATURAL BEAUTY -->
-    <section id="beauty">
-        <div class="card">
-            <h2>The Natural You ✨</h2>
-            <p>Pata hai, duniya nei tumhara chehra dekha hai , par mujhe tumhari vo bina makeup wala bachpna hi psnd jisme tum pure dikhti ho kesi ho. <span class="highlight">bina makeup ke</span> hoti ho. Wo subah wali masoomiyat, wo bikhre huye baal... sach bolu toh wahi meri duniya ka sabse pyara nazara hai. Tumhari smile hi mera sukoon hai.</p>
-        </div>
+<div class="intro" id="intro">
 
-        <div class="card">
-            <h2>Those "Kai Hai" Moments 😂</h2>
-            <p>Main janta hoon main tumhe bohot ziddi lagta hoon, bohot pareshaan karta hoon. Par jab tum gusse mein wo <span class="highlight">"Kai hai!"</span> bolti ho na, mera dil karta hai bas tumhe dekhta rahoon. Tumhara gussa bhi tumhari tarah bohot cute hai!</p>
-        </div>
-    </section>
+<div class="cute">🌄💖</div>
 
-    <div class="spacer"></div>
+<div class="title">
+For Deepu Baby 💕
+</div>
 
-    <!-- PAGE 3: THE MEGA LETTER (WhatsApp Style) -->
-    <section id="letter">
-        <h2 class="reasons-title">A Message From My Heart...</h2>
-        <div class="big-letter-container">
-            <div class="whatsapp-style-text">
-                Laduu...❤️
+<div class="line">
+Hamari 4 baje wali secret walks >>> 😭💞
+</div>
 
-                Mujhe nahi pata main ye sab kaise shuru karu, par sach toh ye hai ki tum meri life ka wo part ban chuki ho jiske bina main adhoora hoon. Main aksar tumhe tang karta hoon, pareshaan karta hoon, bewajah ki baatein karta hoon... par tum jis tarah se mujhe handle karti ho na, wo sirf tum hi kar sakti ho. 
+<div class="memory">
 
-                Tumhara mera <span class="highlight">routine banana</span>, meri tabiyat ki itni fikar karna, mujhe time pe khane ke liye tokna... ye sab dikhata hai ki tum mujhse kitna zyada pyar karti ho. Tumhari wo care hi hai jo mujhe har mushkil se ladne ki himmat deti hai.
+<div class="memory-title">
+🌌 Hamari Secret Morning Walk
+</div>
 
-                Aur wo tumhari shararat! 🙊 Jab main ghar walo ke saath betha hota hoon aur tum jaan-boojh kar mujhe chhedti ho, 'I Love You' bolti ho... aur mujhe pata hota hai main reply nahi de sakta... wo pal meri life ke sabse bade 'sweet moments' hain. Tumhara wo mujhe tang karna aur meri halat par hasna, mujhe har baar tumse phir se pyar karne par majboor kar deta hai.
+<div class="memory-text">
 
-                Jab bhi phone bajta hai aur tumhari awaaz aati hai, wo <span class="highlight">pyaara sa "Hello"</span> sunte hi mera din ban jata hai. Aisa lagta hai jaise duniya ki saari khushi us ek awaaz mein chhupi ho. 
+Poora gaon so raha hota hai... 🌙<br><br>
 
-                Pata hai, main kabhi kabhi bohot preshaan kar deta hoon tumhe, par wo sab isliye kyunki main tumhare bina ek second bhi nahi reh sakta. Tumhara mujh par haq jatana, mujhse ladna, aur fir pyaar se maan jana... yahi toh asli ishq hai. 
+Aur tab meri favorite ladki chupke se walk par aati hai 😭💖<br><br>
 
-                Main promise karta hoon, chahe situation kaisi bhi ho, main hamesha tumhara saath dunga. Main hamesha tumhare us "Kai hai" wali line ka wait karunga aur tumhe hamesha aise hi chhedta rahunga.
+Thandi hawa 🌾<br>
+Khali raste 🌌<br>
+Aur Deepu Baby ka saath 🥺💞<br><br>
 
-                Kyunki tum sirf meri girlfriend nahi ho, tum mera sukoon ho, meri best friend ho, aur meri poori duniya ho. 
+Fir hum dono jaldi ghar aa jate hai kyuki koi dekh na le 😭💕
+</div>
 
-                I Love You So Much Deppu! ❤️💋
-            </div>
-        </div>
-    </section>
+</div>
 
-    <!-- PAGE 4: 10 REASONS (Increasing line count & content) -->
-    <section id="reasons">
-        <h2 class="reasons-title">10 Reasons I Love You</h2>
-        <div class="reason-grid">
-            <div class="reason-item">1. Duniya makeup mei khubsurti dekhti hai , pr tumhara natural chehra hi duniya ka best chehra lgta hai . ✨</div>
-            <div class="reason-item">2. Tumhara gusse mein "Kai hai" bolna. 😂</div>
-            <div class="reason-item">3. Meri health ki mujhse zyada fikar karna. 🩺</div>
-            <div class="reason-item">4. Ghar walo ke samne mujhe tang karna. 🙊</div>
-            <div class="reason-item">5. Tumhari wo sukoon dene wali smile. 😊</div>
-            <div class="reason-item">6. Phone par wo pyaara sa "Hello" bolna. 📞</div>
-            <div class="reason-item">7. Mera har choti baat par routine set karna. 📅</div>
-            <div class="reason-item">8. Tumhara bachon jaisa masoom dil. 👶</div>
-            <div class="reason-item">9. Jis tarah tum mujhe handle karti ho. 🤝</div>
-            <div class="reason-item">10. Kyunki tum Sirf MERI ho! ❤️</div>
-        </div>
-    </section>
+<button class="start" onclick="startQuestions()">
+Secret Message Open Karo 💌
+</button>
 
-    <!-- PAGE 5: FINAL ACTION -->
-    <section class="final-section">
-        <h2>Bol do na... ❤️</h2>
-        <div class="btn-group">
-            <button class="btn" onclick="response('love')">I Love You Too! ❤️</button>
-            <button class="btn" onclick="response('miss')">I Miss You So Much! 🥺</button>
-        </div>
-        <p id="finalMsg" style="margin-top: 40px; font-size: 2rem; font-family: 'Caveat'; font-weight: bold;"></p>
-    </section>
+<div class="small">
+Warning: Bohot jyada pyaar hai is website mei 😭
+</div>
 
-    <footer>
-        Made with Heart for You | Only Yours Forever ❤️
-    </footer>
+</div>
 
-    <!-- 
-        =========================================
-        JAVASCRIPT - LOGIC & EFFECTS
-        =========================================
-    -->
-    <script>
-        // 1. Loader Removal
-        window.onload = () => {
-            setTimeout(() => {
-                document.getElementById('loader').style.display = 'none';
-                startTypewriter();
-            }, 2000);
-        };
+<!-- QUESTION 1 -->
 
-        // 2. Pink Hearts Background System
-        const heartContainer = document.getElementById('hearts-bg');
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.classList.add('floating-heart');
-            
-            // Random pinkish emojis
-            const icons = ['❤️', '💗', '💖', '💕', '🌸', '💘'];
-            heart.innerHTML = icons[Math.floor(Math.random() * icons.length)];
-            
-            heart.style.left = Math.random() * 100 + 'vw';
-            const size = Math.random() * 20 + 15;
-            heart.style.fontSize = size + 'px';
-            
-            const duration = Math.random() * 3 + 3;
-            heart.style.animationDuration = duration + 's';
-            
-            heartContainer.appendChild(heart);
-            setTimeout(() => heart.remove(), duration * 1000);
-        }
-        setInterval(createHeart, 300);
+<div class="question-screen" id="questionScreen">
 
-        // 3. Typewriter Effect
-        const text = "You are the most beautiful person in my world... ❤️";
-        let i = 0;
-        function startTypewriter() {
-            if (i < text.length) {
-                document.getElementById("typewriter").innerHTML += text.charAt(i);
-                i++;
-                setTimeout(startTypewriter, 100);
-            }
-        }
+<div class="walk">🚶‍♀️💕</div>
 
-        // 4. Music Logic
-        const audio = document.getElementById('romanticSong');
-        let isPlaying = false;
-        function toggleMusic() {
-            if (!isPlaying) {
-                audio.play();
-                document.getElementById('musicBtn').innerText = "⏸️";
-            } else {
-                audio.pause();
-                document.getElementById('musicBtn').innerText = "🎵";
-            }
-            isPlaying = !isPlaying;
-        }
+<div class="question">
+Deepu Baby...<br>
+Kal 4 Baje Walk Par Chlogi? 🥺
+</div>
 
-        // 5. Final Response Celebration
-        function response(type) {
-            const msg = document.getElementById('finalMsg');
-            if(type === 'love') {
-                msg.innerText = "I Knew It! I Love You unlimited Times meri miss world ! ❤️💋";
-                // Mega burst of hearts
-                for(let j=0; j<50; j++) {
-                    setTimeout(createHeart, j*50);
-                }
-                alert("Hehe, I Love You baby! 😍");
-            } else {
-                msg.innerText = "I Miss You More! 🥺🌹";
-                alert("Please come soon, I miss you! 🥺");
-            }
-        }
+<div class="note">
+Promise... jaldi ghar wapas aa jayenge 😭💖<br>
+Kisi ko pata bhi nahi chalega 🌙
+</div>
 
-        // 6. Scroll Reveal (Extra lines for functionality)
-        window.addEventListener('scroll', () => {
-            const cards = document.querySelectorAll('.card, .reason-item, .big-letter-container');
-            cards.forEach(card => {
-                const cardTop = card.getBoundingClientRect().top;
-                if(cardTop < window.innerHeight - 50) {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }
-            });
-        });
-    </script>
+<div class="route">
+🌾 Gaon ke raste + Subah ki hawa + Tum = Best Feeling Ever 💞
+</div>
+
+<div class="buttons">
+
+<button class="yes" id="yes">
+Haa Chlenge 💖
+</button>
+
+<button class="no" id="no">
+Nahi 😭
+</button>
+
+</div>
+
+</div>
+
+<!-- QUESTION 2 -->
+
+<div class="second" id="second">
+
+<div class="promise">🥺💞</div>
+
+<div class="question2">
+Pakka Aaogi Na?<br>
+Mujhe Akela Toh Nahi Chhodogi? 😭
+</div>
+
+<div class="cute-line">
+"Nahi" pakadne ki koshish mat karo 😏<br>
+Vo already darr ke bhaag raha hai 😭
+</div>
+
+<div class="secret">
+4 baje wali walks normal nahi hoti... 🌌<br><br>
+
+Vo memories hoti hai 💖<br>
+Jo sirf hum dono ko yaad rahengi 🥺💕
+</div>
+
+<div class="buttons2">
+
+<button class="yes2" id="yes2">
+Haa Baby Pakka 💘
+</button>
+
+<button class="no2" id="no2">
+Nahi 😭
+</button>
+
+</div>
+
+</div>
+
+<!-- FINAL -->
+
+<div class="final" id="final">
+
+<div class="final-heart">💖</div>
+
+<div class="final-title">
+Yayyyyy 😭💕
+</div>
+
+<div class="final-text">
+Ab kal ki walk officially fixed 💞<br><br>
+
+Tum + Main + 4 baje ka sky 🌌<br>
+Aur chupke chupke walk 😭💖
+</div>
+
+<div class="meme-box" id="memeBox"></div>
+
+<div class="footer">
+Made Only For Deepu Baby 💕
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* STARS */
+
+const stars=document.getElementById("stars");
+
+for(let i=0;i<70;i++){
+
+let star=document.createElement("div");
+
+star.classList.add("star");
+
+star.style.top=Math.random()*100+"%";
+star.style.left=Math.random()*100+"%";
+
+star.style.animationDuration=(1+Math.random()*3)+"s";
+
+stars.appendChild(star);
+
+}
+
+/* FLOATING HEARTS */
+
+for(let i=0;i<30;i++){
+
+let heart=document.createElement("div");
+
+heart.classList.add("float-heart");
+
+heart.innerHTML=["💖","💕","✨","💘","🌸"][Math.floor(Math.random()*5)];
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(15+Math.random()*20)+"px";
+
+heart.style.animationDuration=(6+Math.random()*8)+"s";
+
+heart.style.animationDelay=Math.random()*5+"s";
+
+stars.appendChild(heart);
+
+}
+
+/* START */
+
+function startQuestions(){
+
+document.getElementById("intro").style.display="none";
+
+document.getElementById("questionScreen").style.display="block";
+
+burst();
+
+}
+
+/* BUTTONS */
+
+const no=document.getElementById("no");
+const no2=document.getElementById("no2");
+
+function move(btn){
+
+const parent=btn.parentElement;
+
+const parentRect=parent.getBoundingClientRect();
+
+const btnRect=btn.getBoundingClientRect();
+
+const maxX=parentRect.width-btnRect.width-10;
+
+const maxY=parentRect.height-btnRect.height-10;
+
+btn.style.left=Math.random()*maxX+"px";
+
+btn.style.top=Math.random()*maxY+"px";
+
+sparkles();
+
+}
+
+["touchstart","mouseover","click"].forEach(event=>{
+
+no.addEventListener(event,(e)=>{
+
+move(no);
+
+e.preventDefault();
+
+});
+
+no2.addEventListener(event,(e)=>{
+
+move(no2);
+
+e.preventDefault();
+
+});
+
+});
+
+/* YES BUTTONS */
+
+document.getElementById("yes").addEventListener("click",()=>{
+
+document.getElementById("questionScreen").style.display="none";
+
+document.getElementById("second").style.display="block";
+
+burst();
+
+});
+
+document.getElementById("yes2").addEventListener("click",()=>{
+
+document.getElementById("second").style.display="none";
+
+document.getElementById("final").style.display="block";
+
+burst();
+
+startMemes();
+
+});
+
+/* SPARKLES */
+
+function sparkles(){
+
+for(let i=0;i<8;i++){
+
+let spark=document.createElement("div");
+
+spark.classList.add("spark");
+
+spark.innerHTML=["✨","💖","💕","🌸"][Math.floor(Math.random()*4)];
+
+spark.style.left=Math.random()*100+"vw";
+
+spark.style.top=Math.random()*100+"vh";
+
+document.body.appendChild(spark);
+
+setTimeout(()=>{
+spark.remove();
+},1500);
+
+}
+
+}
+
+/* HEART BURST */
+
+function burst(){
+
+for(let i=0;i<25;i++){
+
+let heart=document.createElement("div");
+
+heart.innerHTML=["💖","💕","💘","✨"][Math.floor(Math.random()*4)];
+
+heart.style.position="fixed";
+
+heart.style.left="50%";
+
+heart.style.top="50%";
+
+heart.style.fontSize=(20+Math.random()*20)+"px";
+
+heart.style.transition="all 1.5s ease";
+
+heart.style.zIndex="999";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.top=Math.random()*100+"vh";
+
+heart.style.opacity="0";
+
+},50);
+
+setTimeout(()=>{
+heart.remove();
+},1500);
+
+}
+
+}
+
+/* MEMES */
+
+const memes=[
+
+{
+emoji:"🌄💖",
+title:"4 baje wali walk >>> duniya ki saari dates",
+small:"Kyuki usme sirf tum hoti ho 😭💕"
+},
+
+{
+emoji:"🥺💞",
+title:"Jaldi ghar aana padta hai...",
+small:"Par dil aur walk karna chahta hai 😭"
+},
+
+{
+emoji:"🌾💕",
+title:"Gaon ke raste bhi cute lagte hai",
+small:"Jab tum saath chalti ho 💖"
+},
+
+{
+emoji:"🌌💘",
+title:"Sab so rahe hote hai...",
+small:"Aur hum memories bana rahe hote hai 😭"
+},
+
+{
+emoji:"🫶✨",
+title:"Tum haste ho toh subah aur sundar lagti hai",
+small:"Literal movie vibes 😭💕"
+},
+
+{
+emoji:"💖🥹",
+title:"Official Truth",
+small:"Deepu Baby = Favorite Person 💞"
+}
+
+];
+
+let memeIndex=0;
+
+function startMemes(){
+
+showMeme();
+
+setInterval(()=>{
+
+memeIndex++;
+
+if(memeIndex>=memes.length){
+memeIndex=0;
+}
+
+showMeme();
+
+},3000);
+
+}
+
+function showMeme(){
+
+const box=document.getElementById("memeBox");
+
+box.innerHTML=`
+
+<div class="meme">
+
+<div class="meme-emoji">${memes[memeIndex].emoji}</div>
+
+<div class="meme-title">${memes[memeIndex].title}</div>
+
+<div class="meme-small">${memes[memeIndex].small}</div>
+
+</div>
+
+`;
+
+}
+
+/* CLICK HEARTS */
+
+document.body.addEventListener("click",(e)=>{
+
+let heart=document.createElement("div");
+
+heart.innerHTML="💖";
+
+heart.style.position="fixed";
+
+heart.style.left=e.clientX+"px";
+
+heart.style.top=e.clientY+"px";
+
+heart.style.fontSize="18px";
+
+heart.style.transition="all 1s ease";
+
+heart.style.pointerEvents="none";
+
+heart.style.zIndex="999";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.style.top=(e.clientY-60)+"px";
+
+heart.style.opacity="0";
+
+},10);
+
+setTimeout(()=>{
+heart.remove();
+},1000);
+
+});
+
+</script>
+
 </body>
 </html>
+```
